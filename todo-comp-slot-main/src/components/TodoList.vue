@@ -2,7 +2,7 @@
 import BaseCard from './BaseCard.vue'
 import ListModel from './ListModel.vue'
 
-defineEmits(['deleteTodo', 'editMode'])
+defineEmits(['editMode', 'deleteTodo'])
 defineProps({
   todos: {
     type: Array,
@@ -18,22 +18,22 @@ defineProps({
 
       <template #default="slotProps">
         <BaseCard size="sm" variant="outlined">
-          <template v-slot:title>{{ slotProps.item.id }}</template>
+          
+          <template v-slot:title>
+            <router-link :to="{ name: 'TodoDetail', params: { todoId: slotProps.item.id } }">
+              {{ slotProps.item.id }}
+            </router-link>
+          </template>
+
           <template v-slot:subtitle>{{ slotProps.item.category }} </template>
           <template v-slot:content>{{ slotProps.item.description }}</template>
           <template v-slot:action>
             <!--edit-->
-            <button
-              @click="$emit('editMode', slotProps.item)"
-              class="text-sm text-purple-600 hover:text-purple-400"
-            >
+            <button @click="$emit('editMode', slotProps.item)" class="text-sm text-purple-600 hover:text-purple-400">
               Edit
             </button>
 
-            <button
-              @click="$emit('deleteTodo', slotProps.item.id)"
-              class="text-sm text-red-600 hover:text-red-400"
-            >
+            <button @click="$emit('deleteTodo', slotProps.item.id)" class="text-sm text-red-600 hover:text-red-400">
               Delete
             </button>
           </template>
@@ -57,7 +57,7 @@ defineProps({
         <template v-slot:content>{{ item.description }}</template>
       </BaseCard>
     </ListModel> -->
-    
+
   </div>
 </template>
 

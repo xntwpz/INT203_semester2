@@ -15,10 +15,12 @@ class TodoManagement {
       description: desc
     })
   }
+
   // map
   updateTodo(id, category, description) {
     this.todos = this.todos.map((todo) => {
-      return todo.id === id
+      return todo.id === id // if id correct
+      // destructuring and replace with new
         ? { ...todo, category: category, description: description }
         : todo
     })
