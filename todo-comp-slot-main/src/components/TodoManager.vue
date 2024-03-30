@@ -12,6 +12,7 @@ const clearModal = (flagModal) => {
   showModal.value = flagModal
 }
 const editingTodo = ref({ id: undefined, category: '', description: '' })
+
 const openModalToEdit = (todo) => {
   showModal.value = true
   editingTodo.value = todo

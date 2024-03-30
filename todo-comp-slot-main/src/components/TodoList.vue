@@ -41,22 +41,6 @@ defineProps({
       </template>
     </ListModel>
 
-    <!-- One Slot and Not Destructuring -->
-    <!-- <ListModel :items="todos" v-slot="slotProps">
-      <BaseCard size="sm" variant="flat">
-        <template v-slot:title>{{ slotProps.item.id }}</template>
-        <template v-slot:subtitle>{{ slotProps.item.category }} </template>
-        <template v-slot:content>{{ slotProps.item.description }}</template>
-      </BaseCard>
-    </ListModel> -->
-    <!-- One Slot and Destructuring -->
-    <!-- <ListModel :items="todos" v-slot="{ item }">
-      <BaseCard size="sm" variant="flat">
-        <template v-slot:title>{{ item.id }}</template>
-        <template v-slot:subtitle>{{ item.category }} </template>
-        <template v-slot:content>{{ item.description }}</template>
-      </BaseCard>
-    </ListModel> -->
 
   </div>
 </template>
